@@ -11,12 +11,7 @@ namespace SnakesAndLadders.Classes
         public Snake(IConsoleIO console)
         {
             _console = console;
-            SetSnakeList();
-        }
-
-        public Dictionary<int, int> GetSnakeList()
-        {
-            return _snakes;
+            Set();
         }
 
         public int FindTargetPosition(int key)
@@ -29,7 +24,7 @@ namespace SnakesAndLadders.Classes
             return targetPosition;
         }
 
-        private void SetSnakeList()
+        private void Set()
         {
             _snakes.Add(16, 6);
             _snakes.Add(46, 25);

@@ -41,14 +41,8 @@ namespace SnakesAndLadders.Classes
                 _console.WriteLine("You can't exceed the position {0}, you come back to position {1}", new List<object> { boardLength, TokenPosition });
                 return;
             }
-            TokenPosition += diceResult;
-            _console.WriteLine("Your new position is: {0}", new List<object> { TokenPosition });
-
-            if (TokenPosition == boardLength)
-            {
-                HasWin = true;
-                _console.WriteLine("Congratulations {0}, you have won the game!", new List<object> { Name });
-            }
+            AddDiceResult(diceResult);
+            CheckWin(boardLength);
         }
 
         public void SetNewPosition(int position)
@@ -60,7 +54,7 @@ namespace SnakesAndLadders.Classes
             }
         }
 
-        public Player GetPlayer()
+        public Player Get()
         {
             return this;
         }
@@ -69,6 +63,21 @@ namespace SnakesAndLadders.Classes
         {
             var newPosition = TokenPosition + diceResult;
             return (boardLength - newPosition) < 0 ? true : false;
+        }
+
+        private void CheckWin(int boardLength)
+        {
+            if (TokenPosition == boardLength)
+            {
+                HasWin = true;
+                _console.WriteLine("Congratulations {0}, you have won the game!", new List<object> { Name });
+            }
+        }
+
+        private void AddDiceResult(int diceResult)
+        {
+            TokenPosition += diceResult;
+            _console.WriteLine("Your new position is: {0}", new List<object> { TokenPosition });
         }
     }
 }

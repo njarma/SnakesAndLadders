@@ -12,6 +12,6 @@ namespace SnakesAndLadders.Interfaces
 
         public void SetNewPosition(int position);
 
-        public Player GetPlayer();
+        public Player Get();
     }
 }

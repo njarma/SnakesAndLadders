@@ -17,10 +17,10 @@ namespace SnakesAndLadders.Classes
             _snake = snake;
             _ladder = ladder;
             _console = console;
-            this.SetBoardLength(100);
+            this.SetLength(100);
         }
 
-        public void SetBoardLength(int Length)
+        public void SetLength(int Length)
         {
             this.Length = Length;
         }
@@ -29,13 +29,13 @@ namespace SnakesAndLadders.Classes
         {
             SetPlayerInformation();
 
-            while (!_player.GetPlayer().HasWin)
+            while (!_player.Get().HasWin)
             {
                 _console.WriteLine("Please press enter to roll your dice");
                 Convert.ToString(_console.ReadLine());
 
                 PlayerMovements();
-                var TokenPosition = _player.GetPlayer().TokenPosition;
+                var TokenPosition = _player.Get().TokenPosition;
                 FindLadder(TokenPosition);
                 FindSnake(TokenPosition);
             }
